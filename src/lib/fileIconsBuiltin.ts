@@ -1,12 +1,14 @@
 export const BUILTIN_THEME_ID = "builtin";
 export const SCHEMA_VERSION = 1;
 
+import { NOBICODE_ICONS } from "./fileIconsNobicodeSrcs";
+
 /**
  * Built-in file icon theme — artwork from NobiIDE (com.nobidev.nobicode)
- * FileIconProvider drawables, converted to SVG. The `icons` folder is
- * resolved relative to the app document (www/nobicode-file-icons/).
- * Associations below come from FileIconProvider.kt, merged with the
- * previous built-in associations wherever a matching drawable exists.
+ * FileIconProvider drawables, converted to SVG and embedded as data URIs
+ * in fileIconsNobicodeSrcs.ts. Associations below come from
+ * FileIconProvider.kt, merged with the previous built-in associations
+ * wherever a matching drawable exists.
  */
 function createFileNames() {
 	const fileNames: Record<string, string> = {
@@ -319,7 +321,7 @@ export function createBuiltinTheme() {
 		id: BUILTIN_THEME_ID,
 		name: "Builtin",
 		schemaVersion: SCHEMA_VERSION,
-		icons: "nobicode-file-icons",
+		icons: NOBICODE_ICONS,
 		fileNames: createFileNames(),
 		fileExtensions: createFileExtensions(),
 		folderNames: createFolderNames(),

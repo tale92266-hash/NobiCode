@@ -1,7 +1,7 @@
 {
   "name": "com.nobicode.editor",
   "displayName": "NobiCode",
-  "version": "1.13.13",
+  "version": "1.13.14",
   "description": "NobiCode is a code editor for android, based on open-source Acode (MIT)",
   "scripts": {
     "lang": "node ./utils/lang.js",
