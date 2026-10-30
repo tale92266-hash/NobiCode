@@ -1,9 +1,9 @@
 {
-  "name": "com.nobidev.nobicode.rk.exec.proot",
+  "name": "com.nobicode.editor.rk.exec.proot",
   "version": "1.0.0",
   "description": "Proot stuff",
   "cordova": {
-    "id": "com.nobidev.nobicode.rk.exec.proot",
+    "id": "com.nobicode.editor.rk.exec.proot",
     "platforms": [
       "android"
     ]

@@ -46,7 +46,7 @@ function getPackageName() {
   }
   const content = fs.readFileSync(configPath, 'utf-8');
   const match = content.match(/id="([^"]+)"/);
-  const packageName = match ? match[1] : 'com.nobidev.nobicode';
+  const packageName = match ? match[1] : 'com.nobicode.editor';
   return packageName;
 }
 

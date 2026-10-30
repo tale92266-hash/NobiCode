@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.auth;
+package com.nobicode.editor.rk.auth;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1226,14 +1226,14 @@ class TerminalManager {
 	convertProotPath(prootPath) {
 		if (!prootPath) return prootPath;
 
-		const packageName = window.BuildInfo?.packageName || "com.nobidev.nobicode";
+		const packageName = window.BuildInfo?.packageName || "com.nobicode.editor";
 		const dataDir = `/data/user/0/${packageName}`;
 		const alpineRoot = `${dataDir}/files/alpine`;
 
 		let convertedPath;
 
 		if (prootPath.startsWith("/public")) {
-			// /public -> /data/user/0/com.nobidev.nobicode/files/public
+			// /public -> /data/user/0/com.nobicode.editor/files/public
 			convertedPath = `file://${dataDir}/files${prootPath}`;
 		} else if (
 			prootPath.startsWith("/sdcard") ||

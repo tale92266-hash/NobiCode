@@ -29,12 +29,12 @@ import appSettings from "./settings";
 const isTermuxSafUri = (value = "") =>
 	value.startsWith("content://com.termux.documents/tree/");
 const isNobiCodeTerminalPublicSafUri = (value = "") =>
-	value.startsWith("content://com.nobidev.nobicode.documents/tree/");
+	value.startsWith("content://com.nobicode.editor.documents/tree/");
 const isTerminalSafUri = (value = "") =>
 	isTermuxSafUri(value) || isNobiCodeTerminalPublicSafUri(value);
 
 const getTerminalPaths = () => {
-	const packageName = window.BuildInfo?.packageName || "com.nobidev.nobicode";
+	const packageName = window.BuildInfo?.packageName || "com.nobicode.editor";
 	const dataDir = `/data/user/0/${packageName}`;
 	const alpineRoot = `${dataDir}/files/alpine`;
 	const publicDir = `${dataDir}/files/public`;

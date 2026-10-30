@@ -399,7 +399,7 @@ export default {
 		);
 		const isTermuxUri = currentUri.includes("com.termux.documents");
 		const isNobiCodeTerminalPublicSafUri = currentUri.includes(
-			"com.nobidev.nobicode.documents",
+			"com.nobicode.editor.documents",
 		);
 		const [, treeSegment = ""] = currentUri.split("/tree/");
 		const terminalBasePath = isNobiCodeTerminalPublicSafUri

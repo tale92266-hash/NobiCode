@@ -8,22 +8,22 @@ const menuJava = path.resolve(
 );
 const docProvider = path.resolve(
   __dirname,
-  "../../../platforms/android/app/src/main/java/com/nobidev/nobicode/rk/exec/terminal/AlpineDocumentProvider.java"
+  "../../../platforms/android/app/src/main/java/com/nobicode/editor/rk/exec/terminal/AlpineDocumentProvider.java"
 );
 
 const repeatChar = (char, times) => char.repeat(times);
 
-function replaceImport(filePath, appName) {
+function replaceImport(filePath, widgetId) {
   if (!fs.existsSync(filePath)) {
-    console.warn(`⚠ File not found: ${filePath}`);
+    console.warn(`File not found: ${filePath}`);
     return;
   }
 
   const data = fs.readFileSync(filePath, "utf8");
 
   const updated = data.replace(
-    /(import\s+com\.nobidev\.)(nobicode|nobicodefree)(\.R;)/,
-    `$1${appName}$3`
+    /import\s+[\w.]+\.R;/,
+    `import ${widgetId}.R;`
   );
 
   fs.writeFileSync(filePath, updated);
@@ -41,12 +41,12 @@ try {
     throw new Error("Could not extract widget id from config.xml");
   }
 
-  const appName = match[1].split(".").pop();
+  const widgetId = match[1];
 
-  replaceImport(docProvider, appName);
-  replaceImport(menuJava, appName);
+  replaceImport(docProvider, widgetId);
+  replaceImport(menuJava, widgetId);
 
-  const msg = `==== Changed package to com.nobidev.${appName} ====`;
+  const msg = `==== Changed package to ${widgetId} ====`;
 
   console.log("\n" + repeatChar("=", msg.length));
   console.log(msg);

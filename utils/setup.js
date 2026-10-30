@@ -13,7 +13,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const PLATFORM_FILES = [".DS_Store"];
 const PACKAGE_MANAGERS = new Set(["bun", "npm", "pnpm", "yarn"]);
-const ID_PAID = "com.nobidev.nobicode";
+const ID_PAID = "com.nobicode.editor";
 const ADMOB_PLUGIN_DIR = "admob";
 const REPO_ROOT = path.join(__dirname, "..");
 

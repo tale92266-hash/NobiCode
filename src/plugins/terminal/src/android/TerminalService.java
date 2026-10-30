@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.exec.terminal;
+package com.nobicode.editor.rk.exec.terminal;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -24,7 +24,7 @@ import java.io.OutputStream;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
-import com.nobidev.nobicode.rk.exec.terminal.*;
+import com.nobicode.editor.rk.exec.terminal.*;
 
 
 public class TerminalService extends Service {
@@ -38,10 +38,10 @@ public class TerminalService extends Service {
 
     public static final String CHANNEL_ID = "terminal_exec_channel";
     
-    public static final String ACTION_EXIT_SERVICE = "com.nobidev.nobicode.ACTION_EXIT_SERVICE";
-    public static final String MOVE_TO_BACKGROUND = "com.nobidev.nobicode.MOVE_TO_BACKGROUND";
-    public static final String MOVE_TO_FOREGROUND = "com.nobidev.nobicode.MOVE_TO_FOREGROUND";
-    public static final String ACTION_TOGGLE_WAKE_LOCK = "com.nobidev.nobicode.ACTION_TOGGLE_WAKE_LOCK";
+    public static final String ACTION_EXIT_SERVICE = "com.nobicode.editor.ACTION_EXIT_SERVICE";
+    public static final String MOVE_TO_BACKGROUND = "com.nobicode.editor.MOVE_TO_BACKGROUND";
+    public static final String MOVE_TO_FOREGROUND = "com.nobicode.editor.MOVE_TO_FOREGROUND";
+    public static final String ACTION_TOGGLE_WAKE_LOCK = "com.nobicode.editor.ACTION_TOGGLE_WAKE_LOCK";
     public static boolean Default_Foreground = true;
 
     private final Map<String, Process> processes = new ConcurrentHashMap<>();

@@ -1,9 +1,9 @@
 {
-  "name": "com.nobidev.nobicode.rk.auth",
+  "name": "com.nobicode.editor.rk.auth",
   "version": "1.0.0",
   "description": "Authentication plugin",
   "cordova": {
-    "id": "com.nobidev.nobicode.rk.auth",
+    "id": "com.nobicode.editor.rk.auth",
     "platforms": [
       "android"
     ]

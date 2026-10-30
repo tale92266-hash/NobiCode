@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import com.nobidev.nobicode.R;
+import com.nobicode.editor.R;
 import com.nobidev.system.Ui;
 
 public class Menu extends PopupWindow {

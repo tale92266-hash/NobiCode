@@ -1,9 +1,9 @@
 {
-  "name": "com.nobidev.nobicode.rk.exec.terminal",
+  "name": "com.nobicode.editor.rk.exec.terminal",
   "version": "1.0.0",
   "description": "Terminal stuff",
   "cordova": {
-    "id": "com.nobidev.nobicode.rk.exec.terminal",
+    "id": "com.nobicode.editor.rk.exec.terminal",
     "platforms": [
       "android"
     ]

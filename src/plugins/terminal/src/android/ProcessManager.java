@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.exec.terminal;
+package com.nobicode.editor.rk.exec.terminal;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -9,7 +9,7 @@ import java.util.TimeZone;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import com.nobidev.nobicode.rk.exec.terminal.*;
+import com.nobicode.editor.rk.exec.terminal.*;
 
 public class ProcessManager {
     

@@ -1,7 +1,7 @@
 package com.nobidev.sftp;
 
 import android.content.Context;
-import com.nobidev.nobicode.rk.auth.EncryptedPreferenceManager;
+import com.nobicode.editor.rk.auth.EncryptedPreferenceManager;
 import java.security.GeneralSecurityException;
 import java.util.UUID;
 import org.json.JSONException;

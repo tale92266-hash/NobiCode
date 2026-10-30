@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "com.nobidev.nobicode",
+      "name": "com.nobicode.editor",
       "dependencies": {
         "@acode.app/canvas-view": "^0.0.3",
         "@codemirror/autocomplete": "^6.20.3",
@@ -105,11 +105,11 @@
         "autoprefixer": "^10.5.4",
         "babel-loader": "^10.1.1",
         "chokidar": "^4.0.3",
-        "com.nobidev.nobicode.rk.auth": "file:src/plugins/auth",
-        "com.nobidev.nobicode.rk.customtabs": "file:src/plugins/custom-tabs",
-        "com.nobidev.nobicode.rk.exec.proot": "file:src/plugins/proot",
-        "com.nobidev.nobicode.rk.exec.terminal": "file:src/plugins/terminal",
-        "com.nobidev.nobicode.rk.plugin.plugincontext": "file:src/plugins/pluginContext",
+        "com.nobicode.editor.rk.auth": "file:src/plugins/auth",
+        "com.nobicode.editor.rk.customtabs": "file:src/plugins/custom-tabs",
+        "com.nobicode.editor.rk.exec.proot": "file:src/plugins/proot",
+        "com.nobicode.editor.rk.exec.terminal": "file:src/plugins/terminal",
+        "com.nobicode.editor.rk.plugin.plugincontext": "file:src/plugins/pluginContext",
         "cordova-android": "^15.1.0",
         "cordova-clipboard": "^1.3.0",
         "cordova-plugin-nobicode-webview": "file:src/plugins/webview",
@@ -930,15 +930,15 @@
 
     "colors": ["colors@1.4.0", "", {}, "sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA=="],
 
-    "com.nobidev.nobicode.rk.auth": ["com.nobidev.nobicode.rk.auth@file:src/plugins/auth", {}],
+    "com.nobicode.editor.rk.auth": ["com.nobicode.editor.rk.auth@file:src/plugins/auth", {}],
 
-    "com.nobidev.nobicode.rk.customtabs": ["com.nobidev.nobicode.rk.customtabs@file:src/plugins/custom-tabs", {}],
+    "com.nobicode.editor.rk.customtabs": ["com.nobicode.editor.rk.customtabs@file:src/plugins/custom-tabs", {}],
 
-    "com.nobidev.nobicode.rk.exec.proot": ["com.nobidev.nobicode.rk.exec.proot@file:src/plugins/proot", {}],
+    "com.nobicode.editor.rk.exec.proot": ["com.nobicode.editor.rk.exec.proot@file:src/plugins/proot", {}],
 
-    "com.nobidev.nobicode.rk.exec.terminal": ["com.nobidev.nobicode.rk.exec.terminal@file:src/plugins/terminal", {}],
+    "com.nobicode.editor.rk.exec.terminal": ["com.nobicode.editor.rk.exec.terminal@file:src/plugins/terminal", {}],
 
-    "com.nobidev.nobicode.rk.plugin.plugincontext": ["com.nobidev.nobicode.rk.plugin.plugincontext@file:src/plugins/pluginContext", {}],
+    "com.nobicode.editor.rk.plugin.plugincontext": ["com.nobicode.editor.rk.plugin.plugincontext@file:src/plugins/pluginContext", {}],
 
     "commander": ["commander@8.3.0", "", {}, "sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww=="],
 

@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.exec.terminal;
+package com.nobicode.editor.rk.exec.terminal;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Locale;
-import com.nobidev.nobicode.R;
-import com.nobidev.nobicode.rk.exec.terminal.*;
+import com.nobicode.editor.R;
+import com.nobicode.editor.rk.exec.terminal.*;
 
 public class AlpineDocumentProvider extends DocumentsProvider {
     

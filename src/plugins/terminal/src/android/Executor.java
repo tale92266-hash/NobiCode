@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.exec.terminal;
+package com.nobicode.editor.rk.exec.terminal;
 
 import org.apache.cordova.*;
 import org.json.*;
@@ -27,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.app.Activity;
-import com.nobidev.nobicode.rk.exec.terminal.*;
+import com.nobicode.editor.rk.exec.terminal.*;
 
 import java.net.ServerSocket;
 

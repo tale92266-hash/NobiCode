@@ -2,7 +2,7 @@ package com.nobidev.system;
 
 import android.content.Context;
 import android.util.Log;
-import com.nobidev.nobicode.rk.auth.EncryptedPreferenceManager;
+import com.nobicode.editor.rk.auth.EncryptedPreferenceManager;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.exec.terminal;
+package com.nobicode.editor.rk.exec.terminal;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;

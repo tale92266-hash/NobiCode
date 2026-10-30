@@ -1,7 +1,7 @@
-package com.nobidev.nobicode.rk.exec.terminal;
+package com.nobicode.editor.rk.exec.terminal;
 
 import java.io.*;
-import com.nobidev.nobicode.rk.exec.terminal.*;
+import com.nobicode.editor.rk.exec.terminal.*;
 public class StreamHandler {
     
     public interface OutputListener {

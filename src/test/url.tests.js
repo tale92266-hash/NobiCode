@@ -23,11 +23,11 @@ const JOIN_CASES = [
 	{
 		name: "NobiCode SAF join",
 		folderUrl:
-			"content://com.nobidev.nobicode.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobidev.nobicode%2Ffiles%2Fpublic",
+			"content://com.nobicode.editor.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobicode.editor%2Ffiles%2Fpublic",
 		activeLocation:
-			"content://com.nobidev.nobicode.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobidev.nobicode%2Ffiles%2Fpublic::/data/user/0/com.nobidev.nobicode/files/public/",
+			"content://com.nobicode.editor.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobicode.editor%2Ffiles%2Fpublic::/data/user/0/com.nobicode.editor/files/public/",
 		expectedJoined:
-			"content://com.nobidev.nobicode.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobidev.nobicode%2Ffiles%2Fpublic::/data/user/0/com.nobidev.nobicode/files/public/index.html",
+			"content://com.nobicode.editor.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobicode.editor%2Ffiles%2Fpublic::/data/user/0/com.nobicode.editor/files/public/index.html",
 	},
 ];
 
@@ -44,8 +44,8 @@ const TRAILING_SLASH_CASES = [
 	},
 	{
 		name: "NobiCode SAF trailing slash",
-		a: "content://com.nobidev.nobicode.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobidev.nobicode%2Ffiles%2Fpublic/",
-		b: "content://com.nobidev.nobicode.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobidev.nobicode%2Ffiles%2Fpublic",
+		a: "content://com.nobicode.editor.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobicode.editor%2Ffiles%2Fpublic/",
+		b: "content://com.nobicode.editor.documents/tree/%2Fdata%2Fuser%2F0%2Fcom.nobicode.editor%2Ffiles%2Fpublic",
 	},
 ];
 

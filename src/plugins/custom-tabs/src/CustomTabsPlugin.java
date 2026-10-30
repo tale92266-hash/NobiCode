@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.customtabs;
+package com.nobicode.editor.rk.customtabs;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;

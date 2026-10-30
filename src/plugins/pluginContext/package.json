@@ -1,9 +1,9 @@
 {
-  "name": "com.nobidev.nobicode.rk.plugin.plugincontext",
+  "name": "com.nobicode.editor.rk.plugin.plugincontext",
   "version": "1.0.0",
   "description": "PluginContext",
   "cordova": {
-    "id": "com.nobidev.nobicode.rk.plugin.plugincontext",
+    "id": "com.nobicode.editor.rk.plugin.plugincontext",
     "platforms": [
       "android"
     ]

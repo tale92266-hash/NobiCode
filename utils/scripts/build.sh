@@ -45,8 +45,8 @@ if [ "$fdroidFlag" = "fdroid" ]; then
   fi
 
   # Remove only if installed
-  if [ -d "plugins/com.nobidev.nobicode.rk.exec.proot" ]; then
-    cordova plugin remove com.nobidev.nobicode.rk.exec.proot
+  if [ -d "plugins/com.nobicode.editor.rk.exec.proot" ]; then
+    cordova plugin remove com.nobicode.editor.rk.exec.proot
   fi
 
   if [ -d "plugins/cordova-plugin-iap" ]; then
@@ -58,7 +58,7 @@ else
   fi
 
   # Add only if the src exists and not already installed
-  if [ -d "src/plugins/proot" ] && [ ! -d "plugins/com.nobidev.nobicode.rk.exec.proot" ]; then
+  if [ -d "src/plugins/proot" ] && [ ! -d "plugins/com.nobicode.editor.rk.exec.proot" ]; then
     cordova plugin add src/plugins/proot/
   fi
 

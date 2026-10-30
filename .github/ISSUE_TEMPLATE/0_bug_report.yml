@@ -35,7 +35,7 @@ body:
       label: If applicable, attach your NobiCode.log file to this issue.
       description: |
         Search for `Open Log File` in NobiCode command palette, it will open NobiCode.log file then share it
-        or Check this location for log file: `/storage/emulated/0/Android/com.nobidev.nobicode{in case of free version there will be bit more}/files/NobiCode.log`
+        or Check this location for log file: `/storage/emulated/0/Android/com.nobicode.editor{in case of free version there will be bit more}/files/NobiCode.log`
       value: |
         <details><summary>NobiCode.log</summary><pre>
         <!-- Click below this line and paste or drag-and-drop your log-->

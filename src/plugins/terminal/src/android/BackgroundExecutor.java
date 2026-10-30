@@ -1,11 +1,11 @@
-package com.nobidev.nobicode.rk.exec.terminal;
+package com.nobicode.editor.rk.exec.terminal;
 
 import org.apache.cordova.*;
 import org.json.*;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
-import com.nobidev.nobicode.rk.exec.terminal.*;
+import com.nobicode.editor.rk.exec.terminal.*;
 
 public class BackgroundExecutor extends CordovaPlugin {
 

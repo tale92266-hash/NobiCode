@@ -1,4 +1,4 @@
-package com.nobidev.nobicode.rk.auth;
+package com.nobicode.editor.rk.auth;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,7 +6,7 @@ import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 import androidx.browser.customtabs.CustomTabsIntent;
-import com.nobidev.nobicode.rk.auth.EncryptedPreferenceManager;
+import com.nobicode.editor.rk.auth.EncryptedPreferenceManager;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
