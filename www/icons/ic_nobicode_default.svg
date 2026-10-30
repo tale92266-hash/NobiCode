@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs>
-<rect width="192" height="192" rx="42" fill="#070B1F"/>
-<text x="30" y="128" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="url(#g)">&lt;</text>
-<text x="62" y="132" font-family="Arial, sans-serif" font-size="96" font-weight="bold" fill="#FFFFFF">N</text>
-<text x="138" y="128" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="url(#g)">&gt;</text>
+<rect width="192" height="192" rx="42" fill="#0B1220"/>
+<path d="M68 126 L68 66 L84 66 L112 104 L112 66 L128 66 L128 126 L112 126 L84 88 L84 126 Z" fill="#FFFFFF"/>
+<polyline points="52,78 34,96 52,114" fill="none" stroke="#8B5CF6" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="140,78 158,96 140,114" fill="none" stroke="#22D3EE" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -2,6 +2,7 @@ import "core-js/stable";
 import "html-tag-js/dist/polyfill";
 
 import "./main.scss";
+import "styles/nobicode-professional.scss";
 import "res/icons/style.css";
 import "res/file-icons/style.css";
 import "styles/overrideAceStyle.scss";

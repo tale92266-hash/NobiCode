@@ -23,6 +23,34 @@ dark.scrollbarColor = "rgba(255, 255, 255, 0.2)";
 dark.preferredEditorTheme = getSystemEditorTheme(true);
 dark.preferredTerminalTheme = "dark";
 
+
+const nobicode = createBuiltInTheme("NobiCode", "dark", "free");
+nobicode.darkenedPrimaryColor = "rgb(11, 14, 24)";
+nobicode.primaryColor = "rgb(15, 20, 32)";
+nobicode.primaryTextColor = "rgb(232, 236, 244)";
+nobicode.secondaryColor = "rgb(23, 30, 46)";
+nobicode.secondaryTextColor = "rgb(154, 164, 184)";
+nobicode.activeColor = "rgb(91, 141, 239)";
+nobicode.activeIconColor = "rgb(91, 141, 239)";
+nobicode.linkTextColor = "rgb(125, 165, 245)";
+nobicode.borderColor = "rgba(232, 236, 244, 0.08)";
+nobicode.popupIconColor = "rgb(232, 236, 244)";
+nobicode.popupBackgroundColor = "rgb(28, 36, 54)";
+nobicode.popupTextColor = "rgb(232, 236, 244)";
+nobicode.popupActiveColor = "rgb(91, 141, 239)";
+nobicode.popupBorderColor = "rgba(232, 236, 244, 0.08)";
+nobicode.popupBorderRadius = "12px";
+nobicode.boxShadowColor = "rgba(0, 0, 0, 0.45)";
+nobicode.buttonBackgroundColor = "rgb(91, 141, 239)";
+nobicode.buttonTextColor = "rgb(255, 255, 255)";
+nobicode.buttonActiveColor = "rgb(75, 120, 220)";
+nobicode.activeTextColor = "rgb(255, 255, 255)";
+nobicode.errorTextColor = "rgb(255, 170, 100)";
+nobicode.dangerColor = "rgb(220, 85, 85)";
+nobicode.scrollbarColor = "rgba(232, 236, 244, 0.15)";
+nobicode.preferredEditorTheme = "vscodeDark";
+nobicode.preferredTerminalTheme = "dark";
+
 const oled = createBuiltInTheme("OLED");
 oled.primaryColor = "rgb(0, 0, 0)";
 oled.primaryTextColor = "rgb(255, 255, 255)";
@@ -248,19 +276,19 @@ export function getSystemEditorTheme(darkTheme) {
 export function updateSystemTheme(darkTheme, applyTheme = true) {
 	if (darkTheme) {
 		system.type = "dark";
-		system.primaryColor = "rgb(35, 39, 42)";
-		system.primaryTextColor = "rgb(245, 245, 245)";
-		system.darkenedPrimaryColor = "rgb(24, 27, 30)";
-		system.secondaryColor = "rgb(45, 49, 52)";
-		system.secondaryTextColor = "rgb(228, 228, 228)";
-		system.activeColor = "rgb(66, 133, 244)";
-		system.linkTextColor = "rgb(138, 180, 248)";
-		system.borderColor = "rgba(188, 188, 188, 0.15)";
-		system.popupIconColor = "rgb(245, 245, 245)";
+		system.primaryColor = "rgb(15, 20, 32)";
+		system.primaryTextColor = "rgb(232, 236, 244)";
+		system.darkenedPrimaryColor = "rgb(11, 14, 24)";
+		system.secondaryColor = "rgb(23, 30, 46)";
+		system.secondaryTextColor = "rgb(154, 164, 184)";
+		system.activeColor = "rgb(91, 141, 239)";
+		system.linkTextColor = "rgb(125, 165, 245)";
+		system.borderColor = "rgba(232, 236, 244, 0.08)";
+		system.popupIconColor = "rgb(232, 236, 244)";
 
-		system.popupBackgroundColor = "rgb(35, 39, 42)";
-		system.popupTextColor = "rgb(245, 245, 245)";
-		system.popupActiveColor = "rgb(66, 133, 244)";
+		system.popupBackgroundColor = "rgb(28, 36, 54)";
+		system.popupTextColor = "rgb(232, 236, 244)";
+		system.popupActiveColor = "rgb(91, 141, 239)";
 	} else {
 		system.type = "light";
 		system.primaryColor = "rgb(255, 255, 255)";
@@ -551,6 +579,7 @@ custom.autoDarkened = true;
 
 export default [
 	system,
+	nobicode,
 	createBuiltInTheme("Legacy", "dark", "free"),
 	dark,
 	light,
