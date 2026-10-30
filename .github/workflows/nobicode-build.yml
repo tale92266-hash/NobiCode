@@ -1,0 +1,47 @@
+name: NobiCode Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "lts/*"
+          cache: npm
+          cache-dependency-path: "**/package-lock.json"
+
+      - name: Install deps
+        run: |
+          npm install
+          npm install -g cordova
+          npm run setup
+
+      - name: Build debug APK (paid variant, ads removed)
+        run: |
+          node utils/storage_manager.mjs y
+          npm run build paid dev apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: NobiCode-debug
+          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
