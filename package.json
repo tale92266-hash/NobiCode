@@ -1,12 +1,11 @@
 {
   "name": "com.nobicode.editor",
   "displayName": "NobiCode",
-  "version": "1.13.5",
+  "version": "1.13.7",
   "description": "NobiCode is a code editor for android, based on open-source Acode (MIT)",
   "scripts": {
     "lang": "node ./utils/lang.js",
     "build": "sh utils/scripts/build.sh",
-    "build:admob": "npm ci --prefix src/plugins/admob --no-audit --no-fund && npm run build --prefix src/plugins/admob",
     "start": "sh utils/scripts/start.sh",
     "dev": "node utils/scripts/dev.js",
     "dev:android": "node utils/scripts/dev.js android",
@@ -16,7 +15,6 @@
     "lint": "biome lint --write",
     "format": "biome format --write",
     "check": "biome check --write",
-    "check:admob-bundle": "node utils/scripts/checkAdmobBundle.js",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "updateAce": "node ./utils/updateAce.js",

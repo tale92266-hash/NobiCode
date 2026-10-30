@@ -38,7 +38,6 @@ import quickToolsInit from "handlers/quickToolsInit";
 import windowResize from "handlers/windowResize";
 import nobicode from "lib/nobicode";
 import actionStack from "lib/actionStack";
-import adRewards from "lib/adRewards";
 import ajax from "lib/ajax";
 import applySettings from "lib/applySettings";
 import checkFiles from "lib/checkFiles";
@@ -58,10 +57,6 @@ import { registerPrettierFormatter } from "lib/registerPrettierFormatter";
 import restoreFiles from "lib/restoreFiles";
 import settings from "lib/settings";
 import { migrateLegacySftpProfiles } from "lib/sftpProfiles";
-import startAd, {
-	BANNER_SUPPRESSION_REASON,
-	setBannerSuppressed,
-} from "lib/startAd";
 import mustache from "mustache";
 import themes from "theme/list";
 import { initHighlighting } from "utils/codeHighlight";
@@ -250,7 +245,6 @@ async function onDeviceReady() {
 		return true;
 	})();
 	window.nobicode = nobicode;
-	await adRewards.init();
 	ensureAceCompatApi();
 
 	if (Number.isInteger(window.ANDROID_SDK_INT) && window.ANDROID_SDK_INT < 33) {
@@ -405,8 +399,6 @@ async function onDeviceReady() {
 				console.error("Error checking login status:", error);
 			}
 
-			fetchPromotions();
-			startAd();
 		}, 500);
 	}
 
@@ -539,25 +531,8 @@ async function onLogin() {
 		if (Boolean(user.nobicode_pro)) {
 			config.HAS_PRO = true;
 		}
-		if (config.HAS_PRO) {
-			setBannerSuppressed(BANNER_SUPPRESSION_REASON.PRO, true);
-		}
 	} catch (error) {
 		console.error(error);
-	}
-}
-
-async function fetchPromotions() {
-	try {
-		const res = await fetch(`${config.API_BASE}/promotions`);
-		if (res.ok) {
-			const data = await res.json();
-			if (Array.isArray(data)) {
-				localStorage.setItem("cached_promotions", JSON.stringify(data));
-			}
-		}
-	} catch (err) {
-		console.debug("Failed to fetch promotions:", err);
 	}
 }
 
@@ -1002,7 +977,6 @@ async function pauseHandler() {
 }
 
 function resumeHandler() {
-	adRewards.handleResume();
 	if (!settings.value.checkFiles) return;
 	checkFiles();
 }

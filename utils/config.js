@@ -55,23 +55,10 @@ function getAdmobSyncPlan({
 		throw new Error(`Unsupported app variant: ${variant}`);
 	}
 
-	if (variant === "free" && !bundleExists) {
-		throw new Error(
-			"Missing src/plugins/admob/www/admob.js. Run `npm run build:admob` before building the free app.",
-		);
-	}
 
 	const actions = [];
 	addRemoval(LEGACY_CONSENT_PLUGIN_ID, legacyConsentState);
 	addRemoval(ADMOB_PLUGIN_ID, admobState);
-
-	if (variant === "free") {
-		actions.push({
-			command: "cordova",
-			args: ["plugin", "add", "src/plugins/admob", "--nosave"],
-			env: PLUGIN_COMMAND_ENV,
-		});
-	}
 
 	return actions;
 
@@ -214,7 +201,7 @@ function assertPluginState({ variant, paths, fsImpl }) {
 		config,
 		fsImpl,
 	});
-	const expectedAdmobInstalled = variant === "free";
+	const expectedAdmobInstalled = false; // NobiCode: ads removed, AdMob is never installed.
 
 	if (Object.values(legacyConsentState).some(Boolean)) {
 		throw new Error("Failed to remove the legacy Cordova consent plugin.");

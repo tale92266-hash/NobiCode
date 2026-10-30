@@ -1,10 +1,8 @@
 import fsOperation from "fileSystem";
 import alert from "dialogs/alert";
 import escapeStringRegexp from "escape-string-regexp";
-import adRewards from "lib/adRewards";
 import config from "lib/config";
 import fileIcons from "lib/fileIcons";
-import { interstitialAd, requestBannerForPage } from "lib/startAd";
 import { isBinaryFile } from "./binaryExtensions";
 import { isPlayStoreInstall } from "./installSource";
 import path from "./Path";
@@ -289,31 +287,17 @@ export default {
 		editorManager.emit("update", "file-delete");
 	},
 	canShowAds() {
-		return Boolean(!config.HAS_PRO && adRewards.canShowAds());
+		// NobiCode: ads removed completely. Always false.
+		return false;
 	},
 	async showInterstitialIfReady() {
-		if (!this.canShowAds()) return false;
-		if (
-			typeof interstitialAd?.isLoaded === "function" &&
-			typeof interstitialAd?.show === "function" &&
-			(await interstitialAd?.isLoaded())
-		) {
-			interstitialAd.show();
-			return true;
-		}
 		return false;
 	},
 	/**
 	 * Displays ad on the current page
 	 */
 	showAd() {
-		if (!this.canShowAds()) return;
-		if (innerHeight * devicePixelRatio <= 600) return;
-
-		const $page = tag.getAll("wc-page:not(#root)").pop();
-		if ($page) {
-			requestBannerForPage($page);
-		}
+		return;
 	},
 	async toInternalUri(uri) {
 		return new Promise((resolve, reject) => {

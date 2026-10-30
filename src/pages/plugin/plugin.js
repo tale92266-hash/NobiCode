@@ -12,7 +12,6 @@ import customTab from "lib/customTab";
 import installPlugin from "lib/installPlugin";
 import InstallState from "lib/installState";
 import settings from "lib/settings";
-import { interstitialAd } from "lib/startAd";
 import markdownIt from "markdown-it";
 import anchor from "markdown-it-anchor";
 import markdownItFootnote from "markdown-it-footnote";
@@ -577,25 +576,8 @@ export default async function PluginInclude(
 		}
 	}
 
-	async function loadAd(el) {
-		if (!helpers.canShowAds()) return;
-		try {
-			if (!(await interstitialAd?.isLoaded())) {
-				const oldText = el.textContent;
-				el.textContent = strings["loading..."];
-				await interstitialAd?.load();
-				el.textContent = oldText;
-			}
-		} catch (error) {
-			console.warn("Failed to load plugin page ad.", error);
-		}
-	}
-
-	async function getPurchase(sku) {
-		const purchases = await helpers.promisify(iap.getPurchases);
-		const purchase = purchases.find((p) => p.productIds.includes(sku));
-		return purchase;
-	}
+	async function loadAd() {
+	return;
 }
 
 function isValidSource(source) {

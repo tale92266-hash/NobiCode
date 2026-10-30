@@ -13,7 +13,6 @@ import alert from "dialogs/alert";
 import Ref from "html-tag-js/ref";
 import actionStack from "lib/actionStack";
 import config from "lib/config";
-import removeAds from "lib/removeAds";
 import appSettings from "lib/settings";
 import CustomTheme from "pages/customTheme";
 import { updateActiveTerminals } from "settings/terminalSettings";
@@ -315,15 +314,7 @@ export default function () {
 	async function setAppTheme(theme, buy) {
 		if (!DOES_SUPPORT_THEME) return;
 
-		if (buy) {
-			try {
-				await removeAds();
-				renderAppThemes();
-			} catch (e) {
-				return;
-			}
-		}
-
+	
 		if (theme.id === "custom") {
 			CustomTheme();
 			return;

@@ -11,7 +11,6 @@ import {
 	getSftpProfileId,
 	getSftpProfileInfo,
 } from "./sftpProfiles";
-import { interstitialAd } from "./startAd";
 
 export default {
 	/**
@@ -452,13 +451,5 @@ export default {
 };
 
 async function loadAd() {
-	if (!helpers.canShowAds()) return;
-	try {
-		if (!(await interstitialAd?.isLoaded())) {
-			toast(strings.loading);
-			await interstitialAd?.load();
-		}
-	} catch (error) {
-		console.warn("Failed to load interstitial ad.", error);
-	}
+	return;
 }

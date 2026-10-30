@@ -4,7 +4,6 @@ import auth from "lib/auth";
 import config from "lib/config";
 import { isInitialPluginLoadComplete } from "lib/loadPlugins";
 import openFile from "lib/openFile";
-import { BANNER_SUPPRESSION_REASON, setBannerSuppressed } from "lib/startAd";
 import helpers from "utils/helpers";
 
 const handlers = [];
@@ -62,13 +61,6 @@ export default async function HandleIntent(intent = {}) {
 					const user = await auth.getLoggedInUser(true);
 					if (user.nobicode_pro) {
 						config.HAS_PRO = true;
-						setBannerSuppressed(BANNER_SUPPRESSION_REASON.PRO, true);
-						const settings = document.querySelector(
-							'[data-action="list-item"][data-key="removeads"',
-						);
-						if (settings) {
-							settings.remove();
-						}
 					}
 				} catch (error) {}
 			}

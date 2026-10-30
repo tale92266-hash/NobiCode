@@ -5,16 +5,11 @@ import actionStack from "lib/actionStack";
 import { APP_ICONS } from "lib/appIcons";
 import config from "lib/config";
 import openFile from "lib/openFile";
-import { bindPrivacyChoices } from "lib/privacyChoicesController.mjs";
-import { requestProPurchase } from "lib/removeAds";
 import appSettings from "lib/settings";
 import settings from "lib/settings";
-import { showPrivacyOptions, subscribePrivacyState } from "lib/startAd";
-import openAdRewardsPage from "pages/adRewards";
 import appIconSetting, { preloadAppIconSetting } from "pages/appIconSetting";
 import Changelog from "pages/changelog/changelog";
 import plugins from "pages/plugins";
-import Sponsors from "pages/sponsors";
 import themeSetting from "pages/themeSetting";
 import helpers from "utils/helpers";
 import About from "../pages/about";
@@ -169,58 +164,8 @@ export default function mainSettings() {
 		},
 	];
 
-	if (!config.HAS_PRO) {
-		const aboutIndex = items.findIndex((item) => item.key === "about");
-		items.splice(aboutIndex, 0, {
-			key: "privacyChoices",
-			text: strings["privacy choices"] || "Privacy choices",
-			icon: "tune",
-			info:
-				strings["settings-info-main-privacy-choices"] ||
-				"Manage your advertising privacy choices.",
-			category: categories.aboutNobiCode,
-			chevron: true,
-			hidden: true,
-		});
-	}
 
-	if (!config.HAS_PRO) {
-		items.push({
-			key: "adRewards",
-			text: strings["earn ad-free time"],
-			icon: "play_arrow",
-			info: strings["settings-info-main-ad-rewards"],
-			category: categories.supportNobiCode,
-			chevron: true,
-		});
-		items.push({
-			key: "removeads",
-			text: strings["remove ads"],
-			icon: "block",
-			info: `${strings["settings-info-main-remove-ads"]}${!helpers.shouldAllowExternalPurchase() ? ` ${strings["iap-pro-purchase-warning"]}` : ""}`,
-			category: categories.supportNobiCode,
-			chevron: true,
-		});
-	}
 
-	// Add promotion items from cached data
-	const cachedPromotions = helpers.parseJSON(
-		localStorage.getItem("cached_promotions"),
-	);
-	if (Array.isArray(cachedPromotions) && cachedPromotions.length) {
-		categories.promotions = strings["settings-category-discover-apps"];
-		cachedPromotions.forEach((promo) => {
-			if (!promo.url || !promo.label || !/^https?:\/\//.test(promo.url)) return;
-			items.push({
-				key: `promo-${encodeURIComponent(promo.url)}`,
-				text: promo.label,
-				image: typeof promo.icon === "string" ? promo.icon : null,
-				info: typeof promo.link_text === "string" ? promo.link_text : "",
-				link: promo.url,
-				category: categories.promotions,
-			});
-		});
-	}
 
 	/**
 	 * Callback for settings page for handling click event
@@ -249,38 +194,16 @@ export default function mainSettings() {
 				About();
 				break;
 
-			case "sponsors":
-				Sponsors();
-				break;
 
 			case "rateapp":
 				rateBox();
 				break;
 
-			case "privacyChoices":
-				loader.create(
-					strings["privacy choices"] || "Privacy Choices",
-					strings["loading..."] || "Loading...",
-				);
-				try {
-					await showPrivacyOptions();
-				} catch (error) {
-					console.warn("Unable to open AdMob Privacy Choices:", error);
-					helpers.error(
-						"Unable to open Privacy Choices. Check your connection and try again.",
-					);
-				} finally {
-					loader.destroy();
-				}
-				break;
 
 			case "plugins":
 				plugins();
 				break;
 
-			case "adRewards":
-				openAdRewardsPage();
-				break;
 
 			case "formatter":
 				formatterSettings();
@@ -303,13 +226,6 @@ export default function mainSettings() {
 				}
 				break;
 
-			case "removeads":
-				try {
-					if (await requestProPurchase()) this.remove();
-				} catch (error) {
-					helpers.error(error);
-				}
-				break;
 
 			case "changeLog":
 				Changelog();
@@ -333,12 +249,6 @@ export default function mainSettings() {
 	};
 	appSettings.on("update:appIcon", updateAppIcon);
 	page.onClose(() => appSettings.off("update:appIcon", updateAppIcon));
-	if (!config.HAS_PRO) {
-		bindPrivacyChoices({
-			page,
-			subscribe: subscribePrivacyState,
-		});
-	}
 	page.show();
 
 	appSettings.uiSettings["main-settings"] = page;

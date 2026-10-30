@@ -1,4 +1,3 @@
-import { setBannerKeyboardVisible } from "lib/startAd";
 import {
 	getSystemConfiguration,
 	HARDKEYBOARDHIDDEN_NO,
@@ -101,11 +100,6 @@ function shouldIgnoreEditorShortcutTarget(target) {
 }
 
 document.addEventListener("deviceready", () => {
-	document.addEventListener("admob.banner.size", async (event) => {
-		const { height } = event.size;
-		MIN_KEYBOARD_HEIGHT = height + 10;
-	});
-
 	windowResize.on("resizeStart", async () => {
 		const { keyboardHeight, hardKeyboardHidden } =
 			await getSystemConfiguration();
@@ -212,5 +206,4 @@ function focusBlurEditor(keyboardHidden) {
  * @param {boolean} keyboardHidden
  */
 function toggleBannerAd(keyboardHidden) {
-	setBannerKeyboardVisible(!keyboardHidden);
 }
