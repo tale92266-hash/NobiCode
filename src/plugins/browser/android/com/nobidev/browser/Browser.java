@@ -108,7 +108,7 @@ public class Browser extends LinearLayout {
     LinearLayout webViewContainer;
     LinearLayout.LayoutParams faviconFrameParams;
 
-    favicon = createIcon(Ui.Icons.LOGO);
+    favicon = createLogoIcon();
     menuIcon = createIconButton(Ui.Icons.MORE_VERT);
     menuIcon.setOnClickListener(
       new View.OnClickListener() {
@@ -671,6 +671,32 @@ public class Browser extends LinearLayout {
     button.setImageBitmap(icon);
     styleIcon(button);
     return button;
+  }
+
+  /**
+   * Default toolbar icon: the NobiCode launcher artwork (transparent
+   * foreground PNG, toolbar colour shows through as its background).
+   * Falls back to the icon-font LOGO glyph if the drawable is missing,
+   * so the toolbar never shows a blank icon.
+   */
+  private ImageView createLogoIcon() {
+    ImageView icon = new ImageView(context);
+    int drawableId = context
+      .getResources()
+      .getIdentifier(
+        "ic_launcher_foreground",
+        "drawable",
+        context.getPackageName()
+      );
+    if (drawableId != 0) {
+      icon.setImageResource(drawableId);
+    } else {
+      icon.setImageBitmap(
+        Ui.Icons.get(context, Ui.Icons.LOGO, theme.get("primaryTextColor"))
+      );
+    }
+    styleIcon(icon);
+    return icon;
   }
 
   private ImageView createIcon(String code) {
