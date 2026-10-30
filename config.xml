@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.nobicode.editor" android-versionCode="1013" version="1.13.7"
+<widget id="com.nobicode.editor" android-versionCode="1014" version="1.13.8"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cdv="http://cordova.apache.org/ns/1.0">
@@ -31,7 +31,7 @@
         <preference name="BackgroundColor" value="0xFF313131" />
         <preference name="AndroidWindowSplashScreenBackground" value="@color/ic_splash_background" />
         <preference name="AndroidWindowSplashScreenAnimatedIcon"
-            value="res/android/drawable/ic_launcher_foreground.xml" />
+            value="res/android/drawable/ic_launcher_foreground.png" />
         <preference name="AndroidPostSplashScreenTheme" value="@style/Theme.App.Activity" />
         <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <preference name="AndroidLaunchMode" value="singleTask" />
