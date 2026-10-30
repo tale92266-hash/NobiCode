@@ -29,6 +29,20 @@ jobs:
           cache: npm
           cache-dependency-path: "**/package-lock.json"
 
+      - name: Restore signing keystore
+        if: ${{ secrets.NOBICODE_KEYSTORE_BASE64 != '' }}
+        env:
+          NOBICODE_KEYSTORE_BASE64: ${{ secrets.NOBICODE_KEYSTORE_BASE64 }}
+          NOBICODE_KEYSTORE_PASSWORD: ${{ secrets.NOBICODE_KEYSTORE_PASSWORD }}
+          NOBICODE_KEY_ALIAS: ${{ secrets.NOBICODE_KEY_ALIAS }}
+          NOBICODE_KEY_PASSWORD: ${{ secrets.NOBICODE_KEY_PASSWORD }}
+        run: |
+          echo "$NOBICODE_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/nobicode.p12"
+          echo "NOBICODE_KEYSTORE_FILE=$RUNNER_TEMP/nobicode.p12" >> "$GITHUB_ENV"
+          echo "NOBICODE_KEYSTORE_PASSWORD=$NOBICODE_KEYSTORE_PASSWORD" >> "$GITHUB_ENV"
+          echo "NOBICODE_KEY_ALIAS=$NOBICODE_KEY_ALIAS" >> "$GITHUB_ENV"
+          echo "NOBICODE_KEY_PASSWORD=$NOBICODE_KEY_PASSWORD" >> "$GITHUB_ENV"
+
       - name: Install deps
         run: |
           npm install
@@ -39,6 +53,12 @@ jobs:
         run: |
           node utils/storage_manager.mjs y
           npm run build paid dev apk
+
+      - name: Print APK signing cert
+        run: |
+          APK=platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          APKSIGNER=$(find "$ANDROID_HOME" "$ANDROID_SDK_ROOT" /usr/lib/android-sdk /opt/android-sdk -name apksigner 2>/dev/null | head -1)
+          if [ -n "$APKSIGNER" ]; then "$APKSIGNER" verify --print-certs "$APK"; else echo "apksigner not found, skipping cert print"; fi
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v7

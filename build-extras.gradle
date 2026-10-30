@@ -2,6 +2,24 @@ android {
     packagingOptions {
         pickFirst 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'
     }
+    // NobiCode fixed signing key (GitHub Secrets only, never in repo).
+    // Only applied on CI when NOBICODE_KEYSTORE_FILE is set; local/ACS
+    // builds without that env var keep Cordova's default debug signing.
+    if (System.getenv("NOBICODE_KEYSTORE_FILE")) {
+        signingConfigs {
+            nobicode {
+                storeFile file(System.getenv("NOBICODE_KEYSTORE_FILE"))
+                storePassword System.getenv("NOBICODE_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("NOBICODE_KEY_ALIAS")
+                keyPassword System.getenv("NOBICODE_KEY_PASSWORD")
+            }
+        }
+        buildTypes {
+            debug {
+                signingConfig signingConfigs.nobicode
+            }
+        }
+    }
     buildTypes {
         release {
             //might cause ClassNotFoundException errors
