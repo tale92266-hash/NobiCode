@@ -518,6 +518,11 @@ class FileIconRegistry {
 		this.#compiled.set(builtin.id, builtin);
 		this.#activeId = BUILTIN_THEME_ID;
 		this.#preferredId = BUILTIN_THEME_ID;
+		// The built-in theme's asset styles must be injected at startup:
+		// use() only calls #activate when the active theme CHANGES, so
+		// with the default "builtin" preference the <style> rules were
+		// never created and every icon rendered blank (1.13.14).
+		this.#applyThemeStyles(builtin);
 	}
 
 	bindSettings(settings: IconThemeSettings): void {
@@ -1033,7 +1038,7 @@ class FileIconRegistry {
 
 	#applyThemeStyles(compiled: CompiledTheme): void {
 		const doc = getDocument();
-		if (!doc) return;
+		if (!doc?.head) return;
 
 		const rules: string[] = [];
 		for (const [iconId, def] of compiled.icons) {
@@ -1064,7 +1069,7 @@ class FileIconRegistry {
 
 	#removeThemeStyles(id: string): void {
 		getDocument()
-			?.head.querySelector(`style[data-file-icon="${id}"]`)
+			?.head?.querySelector(`style[data-file-icon="${id}"]`)
 			?.remove();
 	}
 }
