@@ -281,17 +281,17 @@
 
       .btn-install {
         background: var(--button-background-color);
-        color: white;
+        color: var(--button-text-color);
       }
 
       .btn-update {
         background: var(--button-background-color);
-        color: white;
+        color: var(--button-text-color);
       }
 
       .btn-uninstall {
         background-color: var(--danger-color) !important;
-        color: white;
+        color: var(--button-text-color);
       }
 
       .btn-secondary {

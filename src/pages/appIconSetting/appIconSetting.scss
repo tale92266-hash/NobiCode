@@ -72,7 +72,7 @@
 			border: 2px solid var(--popup-background-color);
 			border-radius: 50%;
 			background: var(--active-color);
-			color: #fff;
+			color: var(--button-text-color);
 			font: max(12px, 1rem) / 1 "code-editor-icon";
 			pointer-events: none;
 		}

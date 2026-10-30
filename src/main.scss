@@ -172,6 +172,7 @@ a {
 a.icon {
   pointer-events: all !important;
   color: white;
+  color: var(--primary-text-color);
 
   &:focus,
   &:active {
@@ -416,7 +417,7 @@ footer {
     background-color: inherit;
 
     &::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      color: color-mix(in srgb, var(--primary-text-color) 55%, transparent);
     }
   }
 

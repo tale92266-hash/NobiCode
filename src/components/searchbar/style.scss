@@ -36,7 +36,7 @@
     height: 45px;
     width: 45px;
     font-size: 1.2em;
-    color: rgb(255, 255, 255);
+    color: var(--primary-text-color);
   }
 
   &.hide {
