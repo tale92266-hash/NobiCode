@@ -233,7 +233,7 @@ export default async function openFile(file, options = {}) {
 			new EditorFile(name, {
 				uri,
 				type: "video",
-				tabIcon: "file file_type_video",
+				tabIcon: helpers.getIconForFile(name),
 				content: videoContainer,
 				render: true,
 				hideQuickTools: true,
@@ -406,7 +406,7 @@ export default async function openFile(file, options = {}) {
 			new EditorFile(name, {
 				uri,
 				type: "image",
-				tabIcon: "file file_type_image",
+				tabIcon: helpers.getIconForFile(name),
 				content: imageContainer,
 				render: true,
 				hideQuickTools: true,
@@ -439,7 +439,7 @@ export default async function openFile(file, options = {}) {
 			const audioTab = new EditorFile(name, {
 				uri,
 				type: "audio",
-				tabIcon: "file file_type_audio",
+				tabIcon: helpers.getIconForFile(name),
 				content: audioPlayer.container,
 				render: true,
 				hideQuickTools: true,
