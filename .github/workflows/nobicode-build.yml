@@ -30,13 +30,16 @@ jobs:
           cache-dependency-path: "**/package-lock.json"
 
       - name: Restore signing keystore
-        if: ${{ secrets.NOBICODE_KEYSTORE_BASE64 != '' }}
         env:
           NOBICODE_KEYSTORE_BASE64: ${{ secrets.NOBICODE_KEYSTORE_BASE64 }}
           NOBICODE_KEYSTORE_PASSWORD: ${{ secrets.NOBICODE_KEYSTORE_PASSWORD }}
           NOBICODE_KEY_ALIAS: ${{ secrets.NOBICODE_KEY_ALIAS }}
           NOBICODE_KEY_PASSWORD: ${{ secrets.NOBICODE_KEY_PASSWORD }}
         run: |
+          if [ -z "$NOBICODE_KEYSTORE_BASE64" ]; then
+            echo "No signing keystore secret set, skipping restore"
+            exit 0
+          fi
           echo "$NOBICODE_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/nobicode.p12"
           echo "NOBICODE_KEYSTORE_FILE=$RUNNER_TEMP/nobicode.p12" >> "$GITHUB_ENV"
           echo "NOBICODE_KEYSTORE_PASSWORD=$NOBICODE_KEYSTORE_PASSWORD" >> "$GITHUB_ENV"
