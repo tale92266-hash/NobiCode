@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask Questions
+    url: https://github.com/NobiCode-Foundation/NobiCode/discussions
+    about: Ask any questions regarding NobiCode and its ecosystem
+  - name: Telegram Group
+    url: https://t.me/nobidev_nobicode
+    about: Friendly NobiCode Community for helps regarding NobiCode, development and more
+  - name: Discord Server
+    url: https://discord.gg/vVxVWYUAWD
+    about: NobiCode discord server 
